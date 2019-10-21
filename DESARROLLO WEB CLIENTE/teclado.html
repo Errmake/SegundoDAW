@@ -8,54 +8,71 @@
 </head>
 <script>
 
-	var valor = [];
+	//ARRAY DE TEXTO INTRODUCIDO
+	var valor = []; 
+	//POSICION PARA CONTROLAR EL MOVIMIENTO AL RECORRER EL ARRAY
 	var posicion = 0;
+	//ESMAYUS Y ESSHIFT PARA SABER DURANTE EL PROGRAMA SI LAS MAYUSCULAS ESTAN ACTIVADAS
 	var esMayus = false;
 	var esShift = false;
+	//DECLARAMOS TECLAS FUERA PARA NO TENER QUE REPETIRLO EN CADA FUNCION A LAS QUE LAS LLAME
 	var teclas = document.getElementsByName("tecla");
 
 	window.onload = function () {
 
+		//CLIC EN LETRAS Y NUMEROS
 		for (var i = 0; i < teclas.length; i++) {
 			teclas[i].onclick = escribir;
 		}
 
+		//CLIC EN LIMPIAR
 		var limpiado = document.getElementById("limpiar");
 		limpiado.onclick = limpiar;
 
+		//CLIC EN GUARDAR
 		var guardado = document.getElementById("guardar");
 		guardado.onclick = guardar;
 
+		//CLIC EN MOSTRAR
 		var mostrado = document.getElementById("mostrar");
 		mostrado.onclick = mostrar;
 
+		//CLIC EN BLOQMAYUS
 		var bloqMayus = document.getElementById("mayus");
 		bloqMayus.onclick = mayusculas;
 
+		//CLIC EN SHIFT
 		var shift = document.getElementById("shift");
 		shift.onclick = shiftear;
 
+		//CLIC EN RETROCESO
 		var retroceso = document.getElementById("retro");
 		retroceso.onclick = retroceder;
 
+		//CLIC EN TECLEAR
 		var tecleo = document.getElementById("teclea");
 		tecleo.onclick = teclear;
 
+		//CLIC EN >
 		var alante = document.getElementById("avanzar");
 		alante.onclick = siguiente;
 
+		//CLIC EN <
 		var atras = document.getElementById("retroceder");
 		atras.onclick = anterior;
 
+		//CLIC EN <<
 		var primero = document.getElementById("primero");
 		primero.onclick = arrayprimero;
 
+		//CLIC EN >>
 		var ultimo = document.getElementById("ultimo");
 		ultimo.onclick = arrayultimo;
 	}
 
 	function escribir() {
 		document.getElementById("pantalla").value += this.value;
+		//A CONTINUACION PARA PASAR A MINUSCULAS DESPUES DE HABER INTRODUCIDO LETRA CON SHIFT
 		if (esShift == true) {
 			for (var i = 0; i < teclas.length; i++) {
 				teclas[i].value = teclas[i].value.toLowerCase();
@@ -70,19 +87,24 @@
 	}
 
 	function guardar() {
-		valor.push(document.getElementById("pantalla").value)
+		valor.push(document.getElementById("pantalla").value);
+		//DESPUES DE GUARDAR, PANTALLA EN BLANCO
 		document.getElementById("pantalla").value = "";
 	}
 
 	function mostrar() {
+		//SE MUESTRA PRIMERA PALABRA YA QUE POSICION EMPIEZA EN 0 
 		document.getElementById("pantalla").value += valor[posicion];
 		var botones = document.getElementsByTagName("input");
+		//ACTIVAME LOS BOTONES DEL 0 AL 4 QUE SON LOS DE MOVIMIENTO EN AL ARRAY Y EL TEXTO
 		for (var i = 0; i < 5; i++) {
 			botones[i].disabled = false;
 		}
+		//TODOS LOS DEMAS ME LOS DESACTIVAS
 		for (var i = 5; i < botones.length; i++) {
 			botones[i].disabled = true;
 		}
+		//ADEMAS,ACTIVAME EL BOTON PARA PODER VOLVER A TECLEARS
 		document.getElementById("teclea").disabled = false;
 
 	}
