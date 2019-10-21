@@ -104,18 +104,20 @@
 		for (var i = 5; i < botones.length; i++) {
 			botones[i].disabled = true;
 		}
-		//ADEMAS,ACTIVAME EL BOTON PARA PODER VOLVER A TECLEARS
+		//ADEMAS,ACTIVAME EL BOTON PARA PODER VOLVER A TECLEAR
 		document.getElementById("teclea").disabled = false;
 
 	}
 
+
 	function mayusculas() {
+		//SI MAYUSCULAS NO ESTA ACTIVADO, YA QUE INICIALIZO MAYUS EN FALSE,ENTOCES...
 		if (esMayus == false) {
 			for (var i = 0; i < teclas.length; i++) {
 				teclas[i].value = teclas[i].value.toUpperCase();
 				esMayus = true;
 			}
-		} else {
+		} else { //PARA QUE AL VOLVER A PULSAR BLOQ MAYUS SE ME PONGAN EN MINUSCULA
 			for (var i = 0; i < teclas.length; i++) {
 				teclas[i].value = teclas[i].value.toLowerCase();
 				esMayus = false;
@@ -126,38 +128,45 @@
 	function shiftear() {
 		for (var i = 0; i < teclas.length; i++) {
 			teclas[i].value = teclas[i].value.toUpperCase();
+			//PONGO ESSHIFT A TRUE PARA QUE LA FUNCION ESCRIBIR SEPA SI PONER LA LETRA EN MAYUSCULA O MINUSCULA
 			esShift = true;
 		}
 	}
 
 	function retroceder() {
+		//IGUALAR EL VALOR DE PANTALLA A EL VALOR QUE HABIA ANTES REEMPLAZANDO EL ULTIMO VALOR POR UN BLANCO
 		document.getElementById("pantalla").value = valor + valor.replace(valor.charAt(valor.length), "");
 	}
 
 	function teclear() {
 		var teclas = document.getElementsByTagName("input");
+		//VUELVEME A ACTIVAR TODAS LAS TECLAS DEL TECLADO
 		for (var i = 0; i < teclas.length; i++) {
 			teclas[i].disabled = false;
 		}
+		//PERO DESACTIVAME LAS QUE POR DEFECTO VENIAN DESACTIVADAS AL PRINCIPIO
 		teclas[0].disabled = true;
 		teclas[1].disabled = true;
+		//ME SALTO LA POSICION 2 YA QUE ES EL CUADRO DE TEXTO
 		teclas[3].disabled = true;
 		teclas[4].disabled = true;
 		document.getElementById("teclea").disabled = true;
 	}
 
 	function siguiente() {
-
 		posicion += 1;
+		//NO MUESTRES EN PANTALLA POSCIONES QUE SOBREPASAN LA LONGITUD DEL ARRAY
 		if (posicion<valor.length){
 		document.getElementById("pantalla").value = valor[posicion];}
 	}
-	function anterior() {
 
+	function anterior() {
 		posicion -= 1;
+		//NO MUESTRES EN PANTALLA POSCIONES MENORES A 0 DEL ARRAY
 		if (posicion>=0){
 		document.getElementById("pantalla").value = valor[posicion];}
 	}
+
 	function arrayprimero() {
 		posicion = 0;
 		document.getElementById("pantalla").value = valor[posicion];
