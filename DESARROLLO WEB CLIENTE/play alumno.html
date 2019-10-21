@@ -1,0 +1,128 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 tdansitional//EN" "http://www.w3.org/td/xhtml1/DTD/xhtml1-tdansitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title></title>
+	<script type="text/javascript">
+
+		window.onload = function () {
+			var turnon = document.getElementById("play");
+			turnon.onclick = init;
+
+			var turnoff = document.getElementById("stop");
+			turnoff.onclick = fin;
+
+			var seleccion = document.getElementsByName("b");
+			for (var i = 0; i < seleccion.length; i++) {
+				seleccion[i].onclick = seleccionar;
+			}
+
+			var seleccionImg = document.getElementsByTagName("img");
+			for (var i = 0; i < seleccionImg.length; i++) {
+				seleccionImg[i].onclick = seleccionarImg;
+			}
+		}
+
+
+		function init() {
+			var botones = document.getElementsByTagName("input");
+
+			for (var i = 0; i < botones.length; i++) {
+				botones[i].disabled = false;
+			}
+			document.getElementById("play").disabled = true;
+			document.getElementById("stop").disabled = false;
+		}
+
+		function fin() {
+			var botones = document.getElementsByTagName("input");
+
+			for (var i = 0; i < botones.length; i++) {
+				botones[i].disabled = true;
+			}
+			document.getElementById("play").disabled = false;
+			document.getElementById("stop").disabled = true;
+
+			var imagenes = document.getElementsByTagName("img");
+			for (var x = 0; x < imagenes.length; x++) {
+				imagenes[x].style.display = "none";
+			}
+
+			var textos = document.getElementsByName("texto");
+			for (var z = 0; z < textos.length; z++) {
+				textos[z].value = "";
+			}
+		}
+
+		function seleccionar() {
+			switch (this.id) {
+
+				case 'boton1': document.getElementById("img1").style.display = "inline";
+
+					break;
+				case 'boton2': document.getElementById("img2").style.display = "inline";
+
+					break;
+				case 'boton3': document.getElementById("img3").style.display = "inline";
+
+					break;
+
+
+			}
+		}
+
+		function seleccionarImg() {
+			switch (this.id) {
+
+				case 'img1':
+					document.getElementById("text1").value = "Imagenes/1.png";
+					break;
+				case 'img2':
+					document.getElementById("text2").value = "Imagenes/2.png";
+					break;
+				case 'img3':
+					document.getElementById("text3").value = "Imagenes/3.png";
+					break;
+
+
+			}
+		}
+
+	</script>
+</head>
+
+
+<body>
+	<table border="50">
+		<form>
+			<tr>
+				<td><INPUT TYPE="button" id="boton1" name="b" disabled /></td>
+				<td><img src="Imagenes/1.png" width="100px" height="100px" id="img1" style="display:none" name="ima" />
+				</td>
+				<td><INPUT TYPE="text" id="text1" name="texto" /></td>
+			</tr>
+			<tr>
+				<td><INPUT TYPE="button" id="boton2" name="b" disabled /></td>
+				<td><img src="imagenes/2.png" width="100px" height="100px" id="img2" style="display:none" name="ima" />
+				</td>
+				<td><INPUT TYPE="text" id="text2" name="texto" /></td>
+			</tr>
+			<tr>
+				<td><INPUT TYPE="button" id="boton3" name="b" disabled /></td>
+				<td><img src="imagenes/3.jpg" width="100px" height="100px" id="img3" style="display:none" name="ima" />
+				</td>
+				<td><INPUT TYPE="text" id="text3" name="texto" /></td>
+			</tr>
+			<tr>
+				<td><INPUT TYPE="button" id="play" value="start" /> </td>
+				<td><INPUT TYPE="button" id="stop" value="stop" disabled /></td>
+
+			</tr>
+
+		</form>
+	</table>
+</body>
+
+</html>

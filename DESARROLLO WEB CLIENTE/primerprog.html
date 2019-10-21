@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>El primer script</title>
+
+<script type="text/javascript">
+  var aviso="<Javascript> \n Hola Mundo \n \t Que facil es incluir \'comillas simples\' \n \t y \"comillas dobles\" ";
+  alert(aviso);
+
+  /*Crear un array llamado meses y que almacene el nombre de los doce meses del año.
+  //Mostrar por pantalla los doce nombres utilizando la función alert().
+  var meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+  for (var i=0;i<meses.length;i++){
+    alert(meses[i]);
+  }*/
+  var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+  var dni = prompt("Introduce el numero dni");
+  if (dni<0 || dni>99999999){
+    alert("El numero no es valido loco");
+  } else {
+    var resultado=dni%23;
+    resultado=letras[resultado];
+  }
+  var letra = prompt("Introduce letra");
+  alert("Tu nueva letra es " + resultado);
+  if (letra==resultado){
+    alert("Las letras coinciden")
+  } else {
+    alert("Las letras no coinciden")
+  }
+
+  
+</script>
+</head>
+
+<body>
+<p>Esta pagina contiene el primer script creado en Visual Studio Code</p>
+</body>
+</html>

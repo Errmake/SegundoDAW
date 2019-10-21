@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+
+<script type="text/javascript">
+
+        letras();
+        var resultado=letras(cadena);
+        alert(resultado);
+
+        function letras(){
+            var cadena=prompt("Introduce texto: ");
+            if (cadena==cadena.toLowerCase()){
+                return "La cadena solo tiene minusculas";
+            }
+            else if(cadena==cadena.UpperCase()){
+                return "La cadena solo tiene mayusculas";
+            }
+            else {
+                return "La cadena tiene mayusculas y minusculas";
+            }
+
+
+        }
+
+
+
+
+</script>
+
+
+
+
+<body>
+    
+</body>
+</html>

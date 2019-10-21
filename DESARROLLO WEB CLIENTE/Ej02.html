@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Segundo ejercicio</title>
+
+<script type="text/javascript" src=>
+  // Leer el nombre y las edades de varias personas guardar en arrays y mostrar, quién es el menor y quién es el mayor.
+  var intronombre = "Introduce tu nombre";
+  var introedad = "Introduce edad";
+  var nombre;
+  var edad;
+  var arraynombre=[];
+  var arrayedad=[];
+  var usuario;
+  var mayor=0;
+  var menor=0;
+
+for (var i=0;i<4;i++){
+     
+     nombre = prompt(intronombre);
+     arraynombre.push(nombre);
+     edad = prompt(introedad);
+     arrayedad.push(edad);
+     
+}
+
+    for (var i=0;i<4;i++){
+        var inicial=1;
+        if (arrayedad[i]>inicial){
+            mayor=arrayedad[i];
+            usuario=i;
+        }
+        inicial=mayor;
+    }
+
+alert("La persona mas mayor es " + arraynombre[usuario] + " y tiene " + arrayedad[mayor]);
+alert("La persona mas menor es " + arraynombre[menor] + " y tiene " + arrayedad[menor]);
+
+
+
+    alert(arraynombre + " " + arrayedad);
+
+ 
+
+  
+</script>
+</head>
+
+<body>
+<p>Esta pagina contiene el primer ejercicio de la hoja ejercicios javascript</p>
+</body>
+</html>
